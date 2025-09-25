@@ -1,40 +1,74 @@
-export const pytorchCode: string[] = [
-  "import torch",
-  "import torch.nn as nn",
-  "import torch.optim as optim",
-  "",
-  "class SimpleNet(nn.Module):",
-  "    def __init__(self):",
-  "        super(SimpleNet, self).__init__()",
-  "        self.fc1 = nn.Linear(10, 50)",
-  "        self.relu = nn.ReLU()",
-  "        self.fc2 = nn.Linear(50, 1)",
-  "",
-  "    def forward(self, x):",
-  "        x = self.fc1(x)",
-  "        x = self.relu(x)",
-  "        x = self.fc2(x)",
-  "        return x",
-  "",
-  "input_features = 10",
-  "num_samples = 100",
-  "X_train = torch.randn(num_samples, input_features)",
-  "y_train = torch.randn(num_samples, 1)",
-  "",
-  "model = SimpleNet()",
-  "criterion = nn.MSELoss()",
-  "optimizer = optim.SGD(model.parameters(), lr=0.01)",
-  "",
-  "num_epochs = 100",
-  "for epoch in range(num_epochs):",
-  "    optimizer.zero_grad()",
-  "    outputs = model(X_train)",
-  "    loss = criterion(outputs, y_train)",
-  "    loss.backward()",
-  "    optimizer.step()",
-  "",
-  "    if (epoch+1) % 10 == 0:",
-  "        print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')",
-  "",
-  "print('Training complete.')",
+export interface CodeLine {
+  code: string;
+  description: string;
+}
+export const pythonBasics: CodeLine[] = [
+  {
+    code: "def greet(name):",
+    description: "nameを受け取るgreet関数を定義します。",
+  },
+  {
+    code: "    message = f'こんにちは、{name}さん'",
+    description: "f文字列であいさつ文を組み立てています。",
+  },
+  {
+    code: "    print(message)",
+    description: "生成したメッセージを表示します。",
+  },
+  {
+    code: "\n",
+    description: "改行",
+  },
+  {
+    code: "numbers = [1, 2, 3, 4, 5]",
+    description: "処理対象となる整数のリストを作成します。",
+  },
+  {
+    code: "total = 0",
+    description: "合計値を格納する変数を初期化します。",
+  },
+  {
+    code: "",
+    description: "",
+  },
+  {
+    code: "for number in numbers:",
+    description: "numbersの各要素を順番に取り出すfor文を開始します。",
+  },
+  {
+    code: "    total += number",
+    description: "取り出した値をtotalに加算していきます。",
+  },
+  {
+    code: "",
+    description: "",
+  },
+  {
+    code: "if total > 10:",
+    description: "合計値が10を超えているかどうかを判定します。",
+  },
+  {
+    code: "    print('合計は10を超えました')",
+    description: "条件が真のときのメッセージを表示します。",
+  },
+  {
+    code: "else:",
+    description: "条件が偽の場合の処理を用意します。",
+  },
+  {
+    code: "    print('合計は10以下です')",
+    description: "条件が偽の場合に表示するメッセージです。",
+  },
+  {
+    code: "",
+    description: "",
+  },
+  {
+    code: "greet('太郎')",
+    description: "定義したgreet関数を呼び出して挨拶します。",
+  },
+  {
+    code: "print(f'合計値: {total}')",
+    description: "計算した合計値を表示します。",
+  },
 ];
